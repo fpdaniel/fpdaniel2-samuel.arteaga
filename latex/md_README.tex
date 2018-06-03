@@ -1,8 +1,8 @@
-The purpose of this program is to output a simple alphabetically orderd index containing the words from a file named \char`\"{}\+Document.\+txt\char`\"{}. The file must have this name for reasons explained below in \char`\"{}\+Background Info.\char`\"{} The program will produce a file called \char`\"{}\+Actual\+Index.\+txt\char`\"{}. This file will contain the index. The words will be in alphabetical order, but all words that begin with a capital letter will appear before all words that begin with lowercase letters.
+The purpose of this program is to output a simple alphabetically ordered index containing the words from a file named \char`\"{}\+Document.\+txt\char`\"{}. The file must have this name for reasons explained below in \char`\"{}\+Background Info.\char`\"{} The program will produce a file called \char`\"{}\+Actual\+Index.\+txt\char`\"{}. This file will contain the index. The words will be in alphabetical order and are case-\/sensitive, so all words that begin with a capital letter will appear before all words that begin with a lowercase letter. Each word will be followed by a comma-\/separated list of numbers that indicate on which page(s) each word was found.
 
 \subsection*{Background Info\+:}
 
-This project was initially given to us by our Data Structures professors. We were supposed to use our new knowledge of data structures to find a solution to the problem they presented us with, which was to create an index from a given document. They gave us some \char`\"{}skeleton code\char`\"{} that guided us so that we could implement our program the way they wanted us to implement it so that they could test it easily. They also gave us specifications for which words could appear in the index, and what to do when we found words that were not supposed to be in the index. The file \char`\"{}\+Document.\+txt\char`\"{} included in this repository lists their specifications. It is also the file used in testing the program. The program\textquotesingle{}s \char`\"{}\+Main.\+cpp\char`\"{} contains the code used to test our program by our professors.
+This project was initially given to us by our Data Structures professors. We were supposed to use our new knowledge of data structures to find a solution to the problem they presented us with, which was to create an index from a given document. They gave us some \char`\"{}skeleton code\char`\"{} that guided us so that we could implement our program the way they wanted us to implement it so that they could test it easily. They also gave us specifications for which words could appear in the index, and what to do when we found words that were not supposed to be in the index. The file \char`\"{}\+Document.\+txt\char`\"{} included in this repository lists their specifications. It is also the file used in testing the program. The program\textquotesingle{}s \char`\"{}\+Main.\+cpp\char`\"{} contains the code written by our professors that is used to test our program. This program was initially hosted in a private repository that only our professors and we could view, but we copied the files and put them on this repository. Our older git logs did not come with those files, so included in this repository is a file named \char`\"{}older\+\_\+logs.\+txt\char`\"{} that contains the older commit-\/messages and other details from the older repository.
 
 \subsection*{Collaborators\+:}
 
@@ -10,7 +10,7 @@ Francisco Daniel \href{mailto:fpdaniel2@csu.fullerton.edu}{\tt fpdaniel2@csu.\+f
 
 \subsection*{Development Environments\+:}
 
-Vim8 \& Notepad++
+Vim8 \& Notepad++ Compiler used\+: g++ (Ubuntu 5.\+4.\+0-\/6ubuntu1$\sim$16.04.\+9) 5.\+4.\+0 20160609
 
 \subsection*{Building the Program\+:}
 
@@ -18,4 +18,21 @@ A Makefile is included with the project. Navigate to the project\textquotesingle
 
 \subsection*{In this Repository\+:}
 
-The repository contains two header files, \hyperlink{DocumentIndex_8h_source}{Document\+Index.\+h} and \hyperlink{GetLine_8h_source}{Get\+Line.\+h}, and three cpp files, Document\+Index.\+cpp, Get\+Line.\+cpp, and main.\+cpp. There are also numerous text files which are read by the header and cpp files as well as written to. The main.\+cpp tests the output of the other header and cpp files. \hyperlink{GetLine_8h_source}{Get\+Line.\+h} declares a couple of getline functions, while it\textquotesingle{}s cpp file complement implements the two different types of getline functions, called dependent on the parameters. \hyperlink{DocumentIndex_8h_source}{Document\+Index.\+h} defines and implements two different classes and one struct, and their public and private members. One of the classes is used to open a single file and keep track of it\textquotesingle{}s current page number, the other class creates an index for the given document file and writes the index to the given file. Finally, the struct keeps track of how many times a word appears and stores sorted page number appearances for a given word. 
+Almost all of the files in this repository were given to us by our professors. Some of them were complete, and some of them contained skeleton code that we needed to complete. Details are given in the \char`\"{}\+Document.\+txt\char`\"{} file in this repository. More comments are given in most of the files. More information for each file is given below. \begin{DoxyVerb}* README.md: You are here.
+* DocumentIndex.h: This contains the class declaration for the DocumentIndex and DocumentFile class used in the main part of the program. This was mostly given to us, and we had to make only small changes to it.
+* DocumentFile.cpp: This contains the definitions for each of the class functions from DocumentIndex.h. These were implemented by us.
+* Getline.h: This contains declarations for two portable GetLine functions for our project. A professor wrote these functions, and they are used in Main.cpp for testing our code. They are also also used in the code in DocumentIndex.cpp.
+* GetLine.cpp: This contains the definitions for the GetLine functions.
+* Main.cpp: This is the testing code written by the professor(s). More information is given in a comment at the top of the file.
+* Document.txt: This file contains details about the professors' specifications for the project, and it is the file from which the index is created, as stated above.
+* ExcessiveAppearances.txt: This file is used to test if our program properly handles words that appear too many times. More details are given in "Document.txt".
+* ExclusionWords.txt: This file contains newline-separated words that should not be included in the index.
+* ExclusionTest.txt: This file was given to us and tests if our program properly skips words that are in "ExclusionWords.txt".
+* ExpectedIndex.txt: This file was given and shows exactly what the index should look like when the program is run with the given "Document.txt". The "Main.cpp" file tests the output "ActualIndex.txt" against this file to see if our program worked properly.
+* GetWord.txt: This file was given to us and is used to test if our GetWord() function functions properly.
+* Makefile: This file is used to build the project with `make`. More details are given above in "Building the Program."
+* PageNumber.txt: This file was given to us and is used to test whether or not our program properly detects the current page number of the document (Pages are delimited by two consecutive blank lines).
+* older_logs.txt: These are the older git logs mentioned above in "Background Info."
+* Doxyfile: This file is a configuration file for doxygen output that was generated by doxygen. It contains all of the default settings since I have not changed them yet and have not yet learned how to use doxygen properly. I know it is useful and I have seen nice doxygen-generated documentation before, but the documentation generated for this project as of right now is not exactly ideal. I hope to improve it once I learn how to better use doxygen.
+* Directories html/ and latex/: These were both generated by doxygen using the Doxyfile configuration file. It's not too pretty as of right now, but maybe someday it will be.\end{DoxyVerb}
+ 

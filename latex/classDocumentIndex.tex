@@ -1,5 +1,9 @@
 \hypertarget{classDocumentIndex}{}\section{Document\+Index Class Reference}
 \label{classDocumentIndex}\index{Document\+Index@{Document\+Index}}
+
+
+{\ttfamily \#include $<$Document\+Index.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -11,6 +15,9 @@ void {\bfseries Show} (ostream \&stream)\hypertarget{classDocumentIndex_a12ce1bf
 void \hyperlink{classDocumentIndex_af5dfad267805f5db988e5cf891040a12}{Write} (ostream \&index\+File)
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+This class creates the index from a given \hyperlink{classDocumentFile}{Document\+File}. It stores the words and their page numbers in a binary search tree so that they are automatically sorted and operations are performed quickly. It can then write the index out to a text file. 
 
 \subsection{Member Function Documentation}
 \index{Document\+Index@{Document\+Index}!Create@{Create}}
