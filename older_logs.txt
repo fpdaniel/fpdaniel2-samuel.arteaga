@@ -1,0 +1,103 @@
+commit a7377b15a54357fc1509a3caf1dcaa546c247429
+Author: fpdaniel <fpdaniel2@csu.fullerton.edu>
+Date:   Mon Nov 27 13:47:56 2017 -0800
+
+    Add comments and prevent iterator invalidation error in Create().
+
+commit df6c7d10b3ee7fe7a7cfb5a37151e8a43141f39e
+Author: fpdaniel <fpdaniel2@csu.fullerton.edu>
+Date:   Mon Nov 27 13:46:20 2017 -0800
+
+    Add Comments
+
+commit b07b2f4d620f8a74bcf909ec7b4ee0873f4a5643
+Author: fpdaniel <fpdaniel2@csu.fullerton.edu>
+Date:   Tue Nov 14 08:53:24 2017 -0800
+
+    Fix incorrect expected output
+
+commit d90381d52b8ebafb58094c91d37eac7a2ecd1bee
+Author: fpdaniel <fpdaniel2@csu.fullerton.edu>
+Date:   Tue Nov 14 08:52:40 2017 -0800
+
+    Update Document.txt
+
+commit bd7cfd7ce4a34099ec771de40c6506f8e9cdd02b
+Author: fpdaniel <fpdaniel2@csu.fullerton.edu>
+Date:   Mon Nov 13 14:10:54 2017 -0800
+
+    Uncomment commented out Read() definition
+
+commit 5ce12d35389db9c1d507647ef8c517acb68be5d7
+Author: fpdaniel <fpdaniel2@csu.fullerton.edu>
+Date:   Mon Nov 13 14:05:15 2017 -0800
+
+    Finish all function definitions
+
+commit db2b9f630fb2385868123316e5fb06ec1ce04671
+Author: fpdaniel <fpdaniel2@csu.fullerton.edu>
+Date:   Mon Nov 13 14:02:32 2017 -0800
+
+    Include necessary class members, headers and make WordInfo struct
+
+commit 7207e31dd52e188aeeace2512c9b8b21670805b4
+Author: fpdaniel <fpdaniel2@csu.fullerton.edu>
+Date:   Fri Nov 10 12:05:03 2017 -0800
+
+    Update README
+
+commit 3608c2c04f642705d3e893c875985b41c0635cfc
+Author: apanangadan <apanangadan@fullerton.edu>
+Date:   Tue Nov 7 16:34:59 2017 -0800
+
+    Added code for DocumentFile::Open() and DocumentFile::Close()
+
+commit eefc18e1200ce335ac4cb3201fd48bd13d1f6c8d
+Author: apanangadan <apanangadan@fullerton.edu>
+Date:   Mon Nov 6 23:39:27 2017 -0800
+
+    Updated Document.txt and ExpectedIndex.txt
+
+commit cb9d17df9a104321b7531da5390382cc6f780ab5
+Author: apanangadan <apanangadan@fullerton.edu>
+Date:   Mon Nov 6 23:38:14 2017 -0800
+
+    Delete ExpectedIndex.txt
+
+commit c44c5d27dd1c4ceb6f4c4ee02e5a0a836b9506f7
+Author: apanangadan <apanangadan@fullerton.edu>
+Date:   Mon Nov 6 23:37:30 2017 -0800
+
+    Delete Document.txt
+
+commit 7fd4e5e4ce5e01be52eb4af9a94e07efff61bfa3
+Author: apanangadan <apanangadan@fullerton.edu>
+Date:   Sun Nov 5 23:11:20 2017 -0800
+
+    Added .travis.yml
+
+commit dd32373a73eebd88bf0ece4765a6478711c85a8d
+Author: apanangadan <apanangadan@fullerton.edu>
+Date:   Sun Nov 5 23:08:23 2017 -0800
+
+    Commented out #include <unistd.h>
+    
+    Not available on Windows
+
+commit 62d2f1c0b74be1694d5179339b1fe9aab8f37ea2
+Author: David McLaren <sirusblk@gmail.com>
+Date:   Wed Nov 1 18:27:09 2017 -0700
+
+    Fixed line endings.
+
+commit 526263731c759447032466ac346a1ed2772b27c4
+Author: Anand Panangadan <apanangadan@fullerton.edu>
+Date:   Thu Oct 26 12:44:27 2017 -0700
+
+    skeleton code
+
+commit d6346e6ed69e5b27ae42fdbb1bffde7ef80feb1c
+Author: apanangadan <apanangadan@fullerton.edu>
+Date:   Thu Oct 26 03:33:41 2017 -0700
+
+    Initial commit
