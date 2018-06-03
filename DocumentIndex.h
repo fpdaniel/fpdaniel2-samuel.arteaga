@@ -12,62 +12,85 @@ using namespace std;
 
 struct	WordInfo {
 	WordInfo();
-	int count;								// How many times the word appears
-	set<int> pageNums;						// Stores sorted page number appearances for the word
+	int count;								///< How many times the word appears.
+	set<int> pageNums;						///< Stores sorted page number appearances for the word.
 };
 
 typedef	string::size_type	StringSize;
 
+/// This class is a wrapper around an input file stream.
+/// It is used to open a single file, and it keeps track of the current page number.
+/// New pages are delimted by two blank lines.
+/// This class also has member functions to perform certain operations using the stream.
+/// It can also read a file that contains words which should not be included in the index.
 class	DocumentFile
 {
 	public:
+
+		/// Constructor that initializes the current page number to page 1.
 		DocumentFile() : pageNumber_(1) { }
 
+		/// Closes the document file.
 		void	Close();
 
-		int		GetPageNumber();			//	Returns the current pge number.
+		/// Returns the current page number.
+		int		GetPageNumber();
 
-		string	GetWord();					//	Returns the next legal word not on the exception list;
-											//	returns an empty string if there are no more words in
-											//	the line.
+		/// Returns the next legal word not on the exception list;
+		/// Returns an empty string if there are no more words in
+		/// the line.
+		string	GetWord();
 
-		bool	LoadExclusions(const string& name);	//	Loads a list of words to be excluded from the index
-													//	from a file of the given name.
+		/// Loads a list of words to be excluded from the index
+		/// from a file of the given name.
+        /// Returns true iff the file opens properly.
+		bool	LoadExclusions(const string& name);
 
-		bool	Open(const string& name);	//	Opens a document file of the given name.
+		/// Opens a document file of the given name.
+        /// Returns true iff the file opens properly.
+		bool	Open(const string& name);
 
-		bool	Read();						//	Reads the next line of the document file, skipping over
-											//	the double empty lines that mark page separations.
-											//	Returns false if there are no more lines in the file.
+		/// Reads the next line of the document file, skipping over
+		/// the double empty lines that mark page separations.
+		/// Returns false if there are no more lines in the file.
+		bool	Read();
+
+
 
 	private:
 		StringSize	beginPosition_;
 
-		fstream		file_;
+		fstream		file_;					///< The file being read.
 
-		int			pageNumber_;
+		int			pageNumber_;			///< Current page number of the document.
 
-		string		text_;
+		string		text_;					///< The current line to be processed.
 
-		istringstream iss;					// Stream to read individual words from a read line
+		istringstream iss;					///< Stream to read individual words from a read line.
 
-		vector<string> exclusionVec;		// Stores words to be excluded from the index
+		vector<string> exclusionVec;		///< Stores words to be excluded from the index.
 };
 
 class	DocumentIndex
 {
 	public:
-		void	Create(DocumentFile& documentFile);	//	Creates an index for the given document file.
+
+		/// Creates an index for the given document file.
+		void	Create(DocumentFile& documentFile);
 
 		void	Show(ostream& stream);
 
-		void	Write(ostream& indexFile);	//	Writes the index to the given file.
-											//	The argument is a stream so that this function
-											//	can be called to wrtite its output to cout for
-											//	test purposes.
+		/// Writes the index to the given file.
+		/// The argument is a stream so that this function
+		/// can be called to wrtite its output to cout for
+		/// test purposes.
+		void	Write(ostream& indexFile);
+
+
+
 
 	private:
-		map<string, WordInfo> wordMap;		// Stores words and WordInfo to be displayed in the index
+		map<string, WordInfo> wordMap;		///< Stores words and WordInfo to be displayed in the index
 };
 
 #endif

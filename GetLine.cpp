@@ -5,23 +5,19 @@
 
 using namespace std;
 
-//****************************************************************************************
-//
-//	GetLine
-//
-//	This function reads a series of characters from a stream and puts it into a string,
-//	stopping when it sees a line break:
-//		1. A carriage return (CR)
-//		2. A line feed (LF)
-//		3. A CR/LF pair
-//		4. A LF/CR pair
-//	The #3 and #4 pairs are a single line break.
-//	The line break (any of the four) is consumed but not added to the output string.
-//
-//	The return status is true if at least one character, oncluidng a line break, is read;
-//	the status is false if an end-of-file is immediately encountered.
-//
-//****************************************************************************************
+///
+///	This function reads a series of characters from a stream and puts it into a string,
+///	stopping when it sees a line break:
+///		1. A carriage return (CR)
+///		2. A line feed (LF)
+///		3. A CR/LF pair
+///		4. A LF/CR pair
+///	The #3 and #4 pairs are a single line break.
+///	The line break (any of the four) is consumed but not added to the output string.
+///
+///	The return status is true if at least one character, oncluidng a line break, is read;
+///	the status is false if an end-of-file is immediately encountered.
+///
 bool	GetLine(istream& stream, string& text)
 {
 	int		c;
@@ -79,15 +75,11 @@ bool	GetLine(istream& stream, string& text)
 	return(success);
 }
 
-//****************************************************************************************
-//
-//	GetLine
-//
-//	This function reads a series of characters from a stream and puts it into a string,
-//	stopping when it sees any character from a specified delimiter set. The delimiter
-//	is consumed but not added to the output string.
-//
-//****************************************************************************************
+///
+///	This function reads a series of characters from a stream and puts it into a string,
+///	stopping when it sees any character from a specified delimiter set. The delimiter
+///	is consumed but not added to the output string.
+///
 bool	GetLine(istream& stream, string& text, const string& delimiter)
 {
 	const uint32_t	initialMask = 0x80000000;

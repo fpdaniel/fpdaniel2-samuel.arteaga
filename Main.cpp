@@ -1,3 +1,8 @@
+/// This is an assignment I was given in my Data Structures class.
+/// This entire Main.cpp file was given to me by the professors in order to test my program.
+/// I only deleted some of the extra and unnecessary comment blocks,
+/// but the actual code remains unchanged by me.
+
 #include	<fstream>
 #include	<iostream>
 #include	<sstream>
