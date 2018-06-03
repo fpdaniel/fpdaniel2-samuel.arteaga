@@ -30,6 +30,7 @@ void	DocumentFile::Close()
 //	DocumentFile::GetPageNumber
 //
 //	This function simply returns the current page number. 
+//
 //****************************************************************************************
 int	DocumentFile::GetPageNumber()
 {
@@ -139,6 +140,7 @@ bool	DocumentFile::LoadExclusions(const string& name)
 //
 //	This function opens a given file. If the file opens, it returns true, but if it doesn't 
 //	open, it returns false.
+//
 //****************************************************************************************
 bool	DocumentFile::Open(const string& name)
 {
