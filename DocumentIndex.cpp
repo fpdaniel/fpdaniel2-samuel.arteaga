@@ -16,6 +16,7 @@ typedef	string::size_type	StringSize;
 //	This function closes the file associated with the object and writes to the file if 
 //	there is a pending output sequence. Any error state flags are cleared in order to 
 // 	be able to return void. 
+// 
 //****************************************************************************************
 void	DocumentFile::Close()
 {
