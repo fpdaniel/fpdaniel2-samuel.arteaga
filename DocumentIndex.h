@@ -71,6 +71,10 @@ class	DocumentFile
 		vector<string> exclusionVec;		///< Stores words to be excluded from the index.
 };
 
+/// This class creates the index from a given DocumentFile.
+/// It stores the words and their page numbers in a binary search tree so that they
+/// are automatically sorted and operations are performed quickly. It can then
+/// write the index out to a text file.
 class	DocumentIndex
 {
 	public:
