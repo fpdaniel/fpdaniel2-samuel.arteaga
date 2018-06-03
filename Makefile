@@ -18,4 +18,4 @@ GetLine.o: GetLine.cpp GetLine.h
 
 .PHONY: clean
 clean:
-	rm *.o ActualIndex.txt a.out
+	rm -f *.o ActualIndex.txt $(PROG)
