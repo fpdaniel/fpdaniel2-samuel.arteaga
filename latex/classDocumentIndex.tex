@@ -1,0 +1,41 @@
+\hypertarget{classDocumentIndex}{}\section{Document\+Index Class Reference}
+\label{classDocumentIndex}\index{Document\+Index@{Document\+Index}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classDocumentIndex_a5da9c9b63f7941d6ed69441287ac0a2c}{Create} (\hyperlink{classDocumentFile}{Document\+File} \&document\+File)
+\begin{DoxyCompactList}\small\item\em Creates an index for the given document file. \end{DoxyCompactList}\item 
+void {\bfseries Show} (ostream \&stream)\hypertarget{classDocumentIndex_a12ce1bf2e672fa8b1cda8a439f4c6699}{}\label{classDocumentIndex_a12ce1bf2e672fa8b1cda8a439f4c6699}
+
+\item 
+void \hyperlink{classDocumentIndex_af5dfad267805f5db988e5cf891040a12}{Write} (ostream \&index\+File)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Document\+Index@{Document\+Index}!Create@{Create}}
+\index{Create@{Create}!Document\+Index@{Document\+Index}}
+\subsubsection[{\texorpdfstring{Create(\+Document\+File \&document\+File)}{Create(DocumentFile &documentFile)}}]{\setlength{\rightskip}{0pt plus 5cm}void Document\+Index\+::\+Create (
+\begin{DoxyParamCaption}
+\item[{{\bf Document\+File} \&}]{document\+File}
+\end{DoxyParamCaption}
+)}\hypertarget{classDocumentIndex_a5da9c9b63f7941d6ed69441287ac0a2c}{}\label{classDocumentIndex_a5da9c9b63f7941d6ed69441287ac0a2c}
+
+
+Creates an index for the given document file. 
+
+This function creates the map that is used to form the index in \hyperlink{classDocumentIndex_af5dfad267805f5db988e5cf891040a12}{Write()}. If a line read is successful, then valid words will be taken one at a time and inserted into the map. If the received word is already in the map, the count of the word is increased and the word is inserted into the map. If the word is not in the map, a new \hyperlink{structWordInfo}{Word\+Info} object is created to store the count of the word and its page number appearances, and the word is also inserted into the map. Lines are read until there are no more lines to read (when Read() fails). After the map is formed, the map is looped through, deleting any word that appears more than 10 times, the maximum amount of times a word can appear to be in the index. \index{Document\+Index@{Document\+Index}!Write@{Write}}
+\index{Write@{Write}!Document\+Index@{Document\+Index}}
+\subsubsection[{\texorpdfstring{Write(ostream \&index\+File)}{Write(ostream &indexFile)}}]{\setlength{\rightskip}{0pt plus 5cm}void Document\+Index\+::\+Write (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{index\+Stream}
+\end{DoxyParamCaption}
+)}\hypertarget{classDocumentIndex_af5dfad267805f5db988e5cf891040a12}{}\label{classDocumentIndex_af5dfad267805f5db988e5cf891040a12}
+Writes the index to the given file. The argument is a stream so that this function can be called to wrtite its output to cout for test purposes.
+
+This function loops through the map, reading out to the passed ostream each word in the map in alphabetical/capital order, along with each word\textquotesingle{}s page number appearances. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Document\+Index.\+h\item 
+Document\+Index.\+cpp\end{DoxyCompactItemize}

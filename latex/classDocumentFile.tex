@@ -1,0 +1,72 @@
+\hypertarget{classDocumentFile}{}\section{Document\+File Class Reference}
+\label{classDocumentFile}\index{Document\+File@{Document\+File}}
+
+
+{\ttfamily \#include $<$Document\+Index.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDocumentFile_a54643766baff0de19204e9bd9644c107}{Document\+File} ()\hypertarget{classDocumentFile_a54643766baff0de19204e9bd9644c107}{}\label{classDocumentFile_a54643766baff0de19204e9bd9644c107}
+
+\begin{DoxyCompactList}\small\item\em Constructor that initializes the current page number to page 1. \end{DoxyCompactList}\item 
+void \hyperlink{classDocumentFile_a887c2b3d7980a712701493210aa5b741}{Close} ()\hypertarget{classDocumentFile_a887c2b3d7980a712701493210aa5b741}{}\label{classDocumentFile_a887c2b3d7980a712701493210aa5b741}
+
+\begin{DoxyCompactList}\small\item\em Closes the document file. \end{DoxyCompactList}\item 
+int \hyperlink{classDocumentFile_a34aca2bfa5597c543a66b3851bdbf1af}{Get\+Page\+Number} ()\hypertarget{classDocumentFile_a34aca2bfa5597c543a66b3851bdbf1af}{}\label{classDocumentFile_a34aca2bfa5597c543a66b3851bdbf1af}
+
+\begin{DoxyCompactList}\small\item\em Returns the current page number. \end{DoxyCompactList}\item 
+string \hyperlink{classDocumentFile_aff23ce4d1e331cf29384c96d6d8d477a}{Get\+Word} ()
+\item 
+bool \hyperlink{classDocumentFile_a7c43b46a01a65dece7fe59b0688f8609}{Load\+Exclusions} (const string \&name)
+\item 
+bool \hyperlink{classDocumentFile_ab2d3560157bbd53d7987460aa4e4f5fb}{Open} (const string \&name)
+\item 
+bool \hyperlink{classDocumentFile_ab034b51535537e11de596c4d3374b093}{Read} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is a wrapper around an input file stream. It is used to open a single file, and it keeps track of the current page number. New pages are delimted by two blank lines. This class also has member functions to perform certain operations using the stream. It can also read a file that contains words which should not be included in the index. 
+
+\subsection{Member Function Documentation}
+\index{Document\+File@{Document\+File}!Get\+Word@{Get\+Word}}
+\index{Get\+Word@{Get\+Word}!Document\+File@{Document\+File}}
+\subsubsection[{\texorpdfstring{Get\+Word()}{GetWord()}}]{\setlength{\rightskip}{0pt plus 5cm}string Document\+File\+::\+Get\+Word (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classDocumentFile_aff23ce4d1e331cf29384c96d6d8d477a}{}\label{classDocumentFile_aff23ce4d1e331cf29384c96d6d8d477a}
+Returns the next legal word not on the exception list; Returns an empty string if there are no more words in the line.
+
+This function reads a single word from the istringstream in class \hyperlink{classDocumentFile}{Document\+File}. If an excluded word is present, then the word is skipped. If a character that invalidates the word is present, then the word is skipped. If a banned character is present that does not invalidate the word, then the character is stripped to form a valid word. If a word was skipped, then the function is called recursively to test the next word. The function returns either a valid word or an empty string. \index{Document\+File@{Document\+File}!Load\+Exclusions@{Load\+Exclusions}}
+\index{Load\+Exclusions@{Load\+Exclusions}!Document\+File@{Document\+File}}
+\subsubsection[{\texorpdfstring{Load\+Exclusions(const string \&name)}{LoadExclusions(const string &name)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Document\+File\+::\+Load\+Exclusions (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{classDocumentFile_a7c43b46a01a65dece7fe59b0688f8609}{}\label{classDocumentFile_a7c43b46a01a65dece7fe59b0688f8609}
+Loads a list of words to be excluded from the index from a file of the given name. Returns true iff the file opens properly.
+
+This function reads excluded words from the file with the passed filename and inserts those words into the vector member that stores the excluded words. The function returns true if the file opens properly. \index{Document\+File@{Document\+File}!Open@{Open}}
+\index{Open@{Open}!Document\+File@{Document\+File}}
+\subsubsection[{\texorpdfstring{Open(const string \&name)}{Open(const string &name)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Document\+File\+::\+Open (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{classDocumentFile_ab2d3560157bbd53d7987460aa4e4f5fb}{}\label{classDocumentFile_ab2d3560157bbd53d7987460aa4e4f5fb}
+Opens a document file of the given name. Returns true iff the file opens properly. \index{Document\+File@{Document\+File}!Read@{Read}}
+\index{Read@{Read}!Document\+File@{Document\+File}}
+\subsubsection[{\texorpdfstring{Read()}{Read()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Document\+File\+::\+Read (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classDocumentFile_ab034b51535537e11de596c4d3374b093}{}\label{classDocumentFile_ab034b51535537e11de596c4d3374b093}
+Reads the next line of the document file, skipping over the double empty lines that mark page separations. Returns false if there are no more lines in the file.
+
+This function reads a line using Get\+Line() and increments the page\+Number\+\_\+ if there are two consecutive empty lines. The line read from Get\+Line() is stored in the text\+\_\+ member, which is used to create a string stream to be used in \hyperlink{classDocumentFile_aff23ce4d1e331cf29384c96d6d8d477a}{Get\+Word()}. The function returns true if Getline() returns true. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Document\+Index.\+h\item 
+Document\+Index.\+cpp\end{DoxyCompactItemize}

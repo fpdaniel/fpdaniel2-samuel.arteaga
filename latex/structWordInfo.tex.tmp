@@ -1,0 +1,36 @@
+\hypertarget{structWordInfo}{}\section{Word\+Info Struct Reference}
+\label{structWordInfo}\index{Word\+Info@{Word\+Info}}
+
+
+Collaboration diagram for Word\+Info\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structWordInfo_a280f4ee5e4778998c742c037c8a5af12}{Word\+Info} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structWordInfo_ad30dcf8120ada4789fdb89906d83c4ff}{count}\hypertarget{structWordInfo_ad30dcf8120ada4789fdb89906d83c4ff}{}\label{structWordInfo_ad30dcf8120ada4789fdb89906d83c4ff}
+
+\begin{DoxyCompactList}\small\item\em How many times the word appears. \end{DoxyCompactList}\item 
+set$<$ int $>$ \hyperlink{structWordInfo_a7fb46389d7aad0204ce68a426bd16593}{page\+Nums}\hypertarget{structWordInfo_a7fb46389d7aad0204ce68a426bd16593}{}\label{structWordInfo_a7fb46389d7aad0204ce68a426bd16593}
+
+\begin{DoxyCompactList}\small\item\em Stores sorted page number appearances for the word. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Word\+Info@{Word\+Info}!Word\+Info@{Word\+Info}}
+\index{Word\+Info@{Word\+Info}!Word\+Info@{Word\+Info}}
+\subsubsection[{\texorpdfstring{Word\+Info()}{WordInfo()}}]{\setlength{\rightskip}{0pt plus 5cm}Word\+Info\+::\+Word\+Info (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{structWordInfo_a280f4ee5e4778998c742c037c8a5af12}{}\label{structWordInfo_a280f4ee5e4778998c742c037c8a5af12}
+Called when a new word is put into the map. A new word appears one time at its creation. 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Document\+Index.\+h\item 
+Document\+Index.\+cpp\end{DoxyCompactItemize}

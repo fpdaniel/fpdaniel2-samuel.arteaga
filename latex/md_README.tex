@@ -1,0 +1,21 @@
+The purpose of this program is to output a simple alphabetically orderd index containing the words from a file named \char`\"{}\+Document.\+txt\char`\"{}. The file must have this name for reasons explained below in \char`\"{}\+Background Info.\char`\"{} The program will produce a file called \char`\"{}\+Actual\+Index.\+txt\char`\"{}. This file will contain the index. The words will be in alphabetical order, but all words that begin with a capital letter will appear before all words that begin with lowercase letters.
+
+\subsection*{Background Info\+:}
+
+This project was initially given to us by our Data Structures professors. We were supposed to use our new knowledge of data structures to find a solution to the problem they presented us with, which was to create an index from a given document. They gave us some \char`\"{}skeleton code\char`\"{} that guided us so that we could implement our program the way they wanted us to implement it so that they could test it easily. They also gave us specifications for which words could appear in the index, and what to do when we found words that were not supposed to be in the index. The file \char`\"{}\+Document.\+txt\char`\"{} included in this repository lists their specifications. It is also the file used in testing the program. The program\textquotesingle{}s \char`\"{}\+Main.\+cpp\char`\"{} contains the code used to test our program by our professors.
+
+\subsection*{Collaborators\+:}
+
+Francisco Daniel \href{mailto:fpdaniel2@csu.fullerton.edu}{\tt fpdaniel2@csu.\+fullerton.\+edu} Samuel Arteaga \href{mailto:samuel.arteaga@csu.fullerton.edu}{\tt samuel.\+arteaga@csu.\+fullerton.\+edu}
+
+\subsection*{Development Environments\+:}
+
+Vim8 \& Notepad++
+
+\subsection*{Building the Program\+:}
+
+A Makefile is included with the project. Navigate to the project\textquotesingle{}s directory from the command line. Run {\ttfamily make} from the command line while in that directory. A program named \char`\"{}a.\+out\char`\"{} will be produced. To run the program, while in the program\textquotesingle{}s directory, type {\ttfamily ./a.out} on the command line. This will run the tests from our teachers and will produce the index file.
+
+\subsection*{In this Repository\+:}
+
+The repository contains two header files, \hyperlink{DocumentIndex_8h_source}{Document\+Index.\+h} and \hyperlink{GetLine_8h_source}{Get\+Line.\+h}, and three cpp files, Document\+Index.\+cpp, Get\+Line.\+cpp, and main.\+cpp. There are also numerous text files which are read by the header and cpp files as well as written to. The main.\+cpp tests the output of the other header and cpp files. \hyperlink{GetLine_8h_source}{Get\+Line.\+h} declares a couple of getline functions, while it\textquotesingle{}s cpp file complement implements the two different types of getline functions, called dependent on the parameters. \hyperlink{DocumentIndex_8h_source}{Document\+Index.\+h} defines and implements two different classes and one struct, and their public and private members. One of the classes is used to open a single file and keep track of it\textquotesingle{}s current page number, the other class creates an index for the given document file and writes the index to the given file. Finally, the struct keeps track of how many times a word appears and stores sorted page number appearances for a given word. 
