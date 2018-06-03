@@ -1,8 +1,3 @@
-//****************************************************************************************
-//
-//	INCLUDE FILES
-//
-//****************************************************************************************
 #include	<fstream>
 #include	<iostream>
 #include	<sstream>
@@ -14,36 +9,8 @@
 
 using namespace std;
 
-//****************************************************************************************
-//
-//	CONSTANT DEFINITIONS
-//
-//****************************************************************************************
-
-//****************************************************************************************
-//
-//	CLASSES, TYPEDEFS AND STRUCTURES
-//
-//****************************************************************************************
 typedef	string::size_type	StringSize;
 
-//****************************************************************************************
-//
-//	PUBLIC DATA
-//
-//****************************************************************************************
-
-//****************************************************************************************
-//
-//	PRIVATE DATA
-//
-//****************************************************************************************
-
-//****************************************************************************************
-//
-//	FUNCTION PROTOTYPES
-//
-//****************************************************************************************
 bool	CreateIndexTest();
 
 bool	ExcessiveAppearancesTest();
@@ -61,20 +28,16 @@ bool	PageNumberTest();
 //****************************************************************************************
 int main (int argc, char * const argv[])
 {
-	//************************************************************************************
-	//	LOCAL DATA
 	bool			pass;
-	
+
 	int				passCount;
 
 	int				score;
 
 	bool			success;
-	
+
 	string			word;
 
-	//************************************************************************************
-	//	EXECUTABLE STATEMENTS
 	score = 0;
 	passCount = 0;
 
@@ -103,7 +66,7 @@ int main (int argc, char * const argv[])
 	{
 		cout << "  Fail" << endl;
 	}
-	
+
 	cout << endl << "ExcessiveAppearancesTest (10 points)" << endl;
 	pass = ExcessiveAppearancesTest();
 	if (pass)
@@ -116,7 +79,7 @@ int main (int argc, char * const argv[])
 	{
 		cout << "  Fail" << endl;
 	}
-	
+
 	cout << endl << "GetWordTest (20 points)" << endl;
 	pass = GetWordTest();
 	if (pass)
@@ -129,7 +92,7 @@ int main (int argc, char * const argv[])
 	{
 		cout << "  Fail" << endl;
 	}
-	
+
 	cout << endl << "CreateIndexTest (30 points)" << endl;
 	pass = CreateIndexTest();
 	if (pass)
@@ -142,7 +105,7 @@ int main (int argc, char * const argv[])
 	{
 		cout << "  Fail" << endl;
 	}
-	
+
 	if (passCount == 5)
 	{
 		cout << endl << "All tests passed." << endl
@@ -164,64 +127,60 @@ int main (int argc, char * const argv[])
 //****************************************************************************************
 bool	CreateIndexTest()
 {
-	//************************************************************************************
-	//	LOCAL DATA
 	fstream			actualIndexFile;
 
 	string			actualLine;
-	
+
 	DocumentFile	documentFile;
-	
+
 	DocumentIndex	documentIndex;
 
 	uint64_t		endActual = 1;
-	
+
 	uint64_t		endExpected = 2;
-	
+
 	uint64_t		endStatus;
-	
+
 	fstream			expectedIndexFile;
 
 	string			expectedLine;
-	
+
 	bool			pass;
-	
+
 	bool			success;
-	
+
 	string			word;
-	
-	//************************************************************************************
-	//	EXECUTABLE STATEMENTS
+
 	success = documentFile.Open("Document.txt");
 	if (!success)
 	{
 		cout << "Can't open document file." << endl;
 		return(false);
 	}
-	
+
 	actualIndexFile.open("ActualIndex.txt", ios::in | ios::out | ios::trunc);
 	if (actualIndexFile.fail())
 	{
 		cout << "Can't create index file." << endl;
 		return(false);
 	}
-	
+
 	expectedIndexFile.open("ExpectedIndex.txt", ios::in);
 	if (actualIndexFile.fail())
 	{
 		cout << "Can't create index file." << endl;
 		return(false);
 	}
-	
+
 	documentIndex.Create(documentFile);
-	
+
 	documentIndex.Write(actualIndexFile);
-	
+
 //	indexFile << endl << endl;
 //	documentIndex.Show(indexFile);
 
 	actualIndexFile.seekg(0, ios::beg);
-	
+
 	endStatus = 0;
 	while (true)
 	{
@@ -236,13 +195,13 @@ bool	CreateIndexTest()
 		{
 			endStatus |= endExpected;
 		}
-		
+
 		if (endStatus == (endActual | endExpected))
 		{
 			pass = true;
 			break;
 		}
-		
+
 		if (endStatus == 0)
 		{
 			if (actualLine != expectedLine)
@@ -268,33 +227,29 @@ bool	CreateIndexTest()
 //****************************************************************************************
 bool	ExcessiveAppearancesTest()
 {
-	//************************************************************************************
-	//	LOCAL DATA
 	string			actualText;
-	
+
 	DocumentFile	documentFile;
-	
+
 	DocumentIndex	documentIndex;
 
 	string			expectedText = "first 1\nsecond 1\n";
-	
+
 	stringstream	indexStream;
-	
+
 	bool			success;
-	
+
 	string			word;
-	
-	//************************************************************************************
-	//	EXECUTABLE STATEMENTS
+
 	success = documentFile.Open("ExcessiveAppearances.txt");
 	if (!success)
 	{
 		cout << "Can't open document file." << endl;
 		return(false);
 	}
-	
+
 	documentIndex.Create(documentFile);
-	
+
 	documentIndex.Write(indexStream);
 	actualText = indexStream.str();
 	if (actualText == expectedText)
@@ -314,39 +269,35 @@ bool	ExcessiveAppearancesTest()
 //****************************************************************************************
 bool	ExclusionTest()
 {
-	//************************************************************************************
-	//	LOCAL DATA
 	vector<string>	actualWord;
-	
+
 	DocumentFile	documentFile;
-	
+
 	vector<string>	expectedWord =
 	{
 		"some", "words", "to", "include", "and", "some", "to", "or", "to", "or", "to"
 	};
 
 	bool			pass;
-	
+
 	bool			success;
-	
+
 	string			word;
-	
-	//************************************************************************************
-	//	EXECUTABLE STATEMENTS
+
 	success = documentFile.Open("ExclusionTest.txt");
 	if (!success)
 	{
 		cout << "Can't open document file." << endl;
 		return(false);
 	}
-	
+
 	success = documentFile.LoadExclusions("ExclusionWords.txt");
 	if (!success)
 	{
 		cout << "Can't load exclusions." << endl;
 		return(false);
 	}
-	
+
 	while (true)
 	{
 		success = documentFile.Read();
@@ -354,7 +305,7 @@ bool	ExclusionTest()
 		{
 			break;
 		}
-		
+
 		while (true)
 		{
 			word = documentFile.GetWord();
@@ -368,7 +319,7 @@ bool	ExclusionTest()
 			}
 		}
 	}
-	
+
 	if (actualWord.size() == expectedWord.size())
 	{
 		pass = true;
@@ -396,12 +347,10 @@ bool	ExclusionTest()
 //****************************************************************************************
 bool	GetWordTest()
 {
-	//************************************************************************************
-	//	LOCAL DATA
 	vector<string>	actualWord;
-	
+
 	DocumentFile	documentFile;
-	
+
 	vector<string>	expectedWord =
 	{
 		"a", "legal", "word", "and", "another", "period", "comma", "colon", "semicolon",
@@ -410,22 +359,20 @@ bool	GetWordTest()
 		"opening", "single", "quote", "closing", "single", "quote",
 		"OK", "Good"
 	};
-	
+
 	bool			pass;
-	
+
 	bool			success;
 
 	string			word;
 
-	//************************************************************************************
-	//	EXECUTABLE STATEMENTS
 	success = documentFile.Open("GetWord.txt");
 	if (!success)
 	{
 		cout << "Can't open document file." << endl;
 		return(false);
 	}
-	
+
 	while (true)
 	{
 		success = documentFile.Read();
@@ -475,27 +422,23 @@ bool	GetWordTest()
 //****************************************************************************************
 bool	PageNumberTest()
 {
-	//************************************************************************************
-	//	LOCAL DATA
 	int				actualPageNumber;
-	
+
 	DocumentFile	documentFile;
 
 	vector<int>		expectedPageNumber = { 1, 1, 1, 2, 2, 3, 3, 3, 3 };
 
 	bool			pass;
-	
+
 	bool			success;
-	
-	//************************************************************************************
-	//	EXECUTABLE STATEMENTS
+
 	success = documentFile.Open("PageNumber.txt");
 	if (!success)
 	{
 		cout << "Can't open document file." << endl;
 		return(false);
 	}
-	
+
 	pass = true;
 	for (uint64_t i = 0; i < expectedPageNumber.size(); ++i)
 	{
@@ -504,7 +447,7 @@ bool	PageNumberTest()
 		{
 			break;
 		}
-		
+
 		actualPageNumber = documentFile.GetPageNumber();
 		if (actualPageNumber != expectedPageNumber[i])
 		{
@@ -512,7 +455,7 @@ bool	PageNumberTest()
 			break;
 		}
 	}
-	
+
 	return(pass);
 }
 
